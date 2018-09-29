@@ -107,8 +107,8 @@ class CommandServer(object):
         if self.is_service_running():
             raise TBearsCommandException(f"tbears service was started already")
 
-        if self.is_port_available(conf) is False:
-            raise TBearsCommandException(f"port {conf['port']} already in use. use other port.")
+        # if self.is_port_available(conf) is False:
+        #     raise TBearsCommandException(f"port {conf['port']} already in use. use other port.")
 
         # write temporary configuration file
         temp_conf = './temp_conf.json'
@@ -122,7 +122,7 @@ class CommandServer(object):
         self._start_blockmanager(conf)
 
         # start iconrpcserver
-        self._start_iconrpcserver(conf, temp_conf)
+        # self._start_iconrpcserver(conf, temp_conf)
         time.sleep(3)
 
         # remove temporary configuration file
